@@ -83,7 +83,7 @@ along with semanticcms-core-resources.  If not, see <http://www.gnu.org/licenses
 							<configuration>
 								<links>
 									<link>${javac.link.javaApi}</link>
-									<link>https://semanticcms.com/core/model/apidocs/</link>
+									<link>https://aoindustries.com/ao-lang/apidocs/</link>
 								</links>
 							</configuration>
 						</plugin>
@@ -92,4 +92,12 @@ along with semanticcms-core-resources.  If not, see <http://www.gnu.org/licenses
 			</build>
 		</profile>
 	</profiles>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.aoindustries</groupId>
+			<artifactId>ao-lang</artifactId>
+			<version>1.0.1-validation-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
 </project>
