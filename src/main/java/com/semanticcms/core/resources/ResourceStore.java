@@ -30,6 +30,15 @@ package com.semanticcms.core.resources;
 public interface ResourceStore {
 
 	/**
+	 * Stores should provide a meaningful toString implementation, which makes
+	 * sense with the path following.
+	 *
+	 * @see  Resource#toString()
+	 */
+	@Override
+	String toString();
+
+	/**
 	 * Gets a {@link Resource} for the given path.
 	 * The resource may or may not {@link Resource#exists() exist}.
 	 */

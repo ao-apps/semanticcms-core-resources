@@ -41,7 +41,7 @@ import java.io.InputStream;
  */
 abstract public class ResourceConnection implements Closeable {
 
-	private final Resource resource; // TODO: Worth having this reference back to resource?
+	protected final Resource resource; // TODO: Worth having this reference back to resource?
 
 	public ResourceConnection(Resource resource) {
 		this.resource = NullArgumentException.checkNotNull(resource, "resource");
@@ -62,25 +62,28 @@ abstract public class ResourceConnection implements Closeable {
 	/**
 	 * Checks if this resource exists.
 	 *
-	 * @throws  IOException  if I/O error occurs
+	 * @throws  IOException  if I/O error
+	 * @throws  IllegalStateException  is already closed
 	 */
-	abstract public boolean exists() throws IOException;
+	abstract public boolean exists() throws IOException, IllegalStateException;
 
 	/**
 	 * Gets the length of this resource or {@code -1} if unknown.
 	 *
 	 * @throws  IOException  if I/O error occurs
 	 * @throws  FileNotFoundException  if resource does not exist (see {@link #exists()})
+	 * @throws  IllegalStateException  is already closed
 	 */
-	abstract public long getLength() throws IOException, FileNotFoundException;
+	abstract public long getLength() throws IOException, FileNotFoundException, IllegalStateException;
 
 	/**
 	 * Gets the last modified time of this resource or {@code 0} if unknown.
 	 *
 	 * @throws  IOException  if I/O error occurs
 	 * @throws  FileNotFoundException  if resource does not exist (see {@link #exists()})
+	 * @throws  IllegalStateException  is already closed
 	 */
-	abstract public long getLastModified() throws IOException, FileNotFoundException;
+	abstract public long getLastModified() throws IOException, FileNotFoundException, IllegalStateException;
 
 	/**
 	 * Opens this resource for reading.  The stream may only be opened once per connection.
@@ -91,7 +94,7 @@ abstract public class ResourceConnection implements Closeable {
 	 *
 	 * @throws  IOException  if I/O error occurs
 	 * @throws  FileNotFoundException  if resource does not exist (see {@link #exists()})
-	 * @throws  IllegalStateException  if the stream has already been accessed
+	 * @throws  IllegalStateException  if already closed or the stream has already been accessed
 	 */
 	abstract public InputStream getInputStream() throws IOException, FileNotFoundException, IllegalStateException;
 
@@ -108,15 +111,18 @@ abstract public class ResourceConnection implements Closeable {
 	 *
 	 * @throws  IOException  if I/O error occurs
 	 * @throws  FileNotFoundException  if resource does not exist (see {@link #exists()})
+	 * @throws  IllegalStateException  is already closed
 	 *
 	 * @see  #getFile()
 	 * @see  #close()
 	 */
-	abstract public ResourceFile getResourceFile() throws IOException, FileNotFoundException;
+	abstract public ResourceFile getResourceFile() throws IOException, FileNotFoundException, IllegalStateException;
 
 	/**
 	 * Closes access to this resource.
 	 * Also closes any {@link InputStream} or {@link ResourceFile} opened with this resource.
+	 *
+	 * @throws  IOException  if I/O error occurs
 	 *
 	 * @see  #getResourceFile()
 	 */

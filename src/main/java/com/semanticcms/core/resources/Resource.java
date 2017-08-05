@@ -74,9 +74,21 @@ abstract public class Resource {
 		return store.hashCode() * 31 + path.hashCode();
 	}
 
+	/**
+	 * Generated from {@link ResourceStore#toString()} and {@link #path}.
+	 *
+	 * @implSpec  When the {@link ResourceStore#toString()} ends with ":",
+	 *            concatenates {@link ResourceStore#toString()} and {@link #path}.
+	 *            Otherwise, concatenates {@link ResourceStore#toString()}, {@code '!'}, and {@link #path}.
+	 */
 	@Override
 	public String toString() {
-		return store.toString() + '!' + path;
+		String storeString = store.toString();
+		if(storeString.endsWith(":")) {
+			return storeString + path;
+		} else {
+			return storeString + '!' + path;
+		}
 	}
 
 	/**
@@ -308,11 +320,9 @@ abstract public class Resource {
 	 * @return  {@code true} when file I/O (via {@link #getFile()}) will generally perform better,
 	 *          or {@code false} when resource connection (via @{link #open()}) should be preferred.
 	 *
-	 * @implSpec This default implementation returns {@code true} to prefer file I/O, when available.
+	 * @throws  IOException  if I/O error occurs
 	 */
-	public boolean isFilePreferred() {
-		return true;
-	}
+	abstract public boolean isFilePreferred() throws IOException;
 
 	/**
 	 * Tries to get a local {@link File} for this resource.  When the resource exists locally,
