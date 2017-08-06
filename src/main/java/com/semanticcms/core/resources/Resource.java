@@ -277,75 +277,6 @@ abstract public class Resource {
 	}
 
 	/**
-	 * Gets a {@link File} for this resource.  When the resource exists locally, this will
-	 * be a direct reference to the resource.  When the resource exists remotely or is otherwise
-	 * not directly accessible, this may require fetching the resource contents into a temporary
-	 * file.  To allow prompt cleanup of any temporary files, call {@link ResourceFile#close()}
-	 * when done with the file.
-	 * <p>
-	 * Use this when having a {@link File} is a hard requirement, and not merely a convenience
-	 * or optimization.  Use {@link #getFile()} when a {@link File} is optional.
-	 * </p>
-	 * <p>
-	 * This method opens non-local-file resources and closes the resource when the {@link ResourceFile} is closed.
-	 * If consecutive operations will be done on the resource, use {@link #open()}
-	 * to obtain a {@link ResourceConnection}.
-	 * </p>
-	 *
-	 * @throws  IOException  if I/O error occurs
-	 * @throws  FileNotFoundException  if resource does not exist (see {@link #exists()})
-	 *
-	 * @see  #isFilePreferred()
-	 * @see  #getFile()
-	 * @see  #open()
-	 * @see  ResourceConnection#getResourceFile()
-	 */
-	public ResourceFile getResourceFile() throws IOException, FileNotFoundException {
-		final File file = isFilePreferred() ? getFile() : null;
-		if(file != null) {
-			if(!file.exists()) throw new FileNotFoundException(file.getPath());
-			return new ResourceFile() {
-				private boolean closed;
-
-				@Override
-				public File getFile() {
-					return closed ? null : file;
-				}
-
-				@Override
-				public void close() throws IOException {
-					closed = true;
-				}
-			};
-		} else {
-			boolean closeNow = true;
-			final ResourceConnection conn = open();
-			try {
-				final ResourceFile rf = conn.getResourceFile();
-				ResourceFile wrapper = new ResourceFile() {
-					@Override
-					public File getFile() {
-						return rf.getFile();
-					}
-
-					@Override
-					public void close() throws IOException {
-						try {
-							rf.close();
-						} finally {
-							conn.close();
-						}
-					}
-				};
-				closeNow = false;
-				return wrapper;
-			} finally {
-				if(closeNow) conn.close();
-			}
-		}
-	}
-
-	/**
 	 * There is a chance for the {@link ResourceConnection} implementation to outperform direct file I/O,
 	 * this flag determines whether performance-sensitive API usage should prefer direct
 	 * file I/O (when available) or prefer resource connections.
@@ -366,12 +297,12 @@ abstract public class Resource {
 	 * </p>
 	 * <p>
 	 * Use this when having a {@link File} is a convenience or optimization, and not a hard
-	 * requirement.  Use {@link #getResourceFile()} when a {@link File} is required.
+	 * requirement.  Use {@link ResourceConnection#getFile()} when a {@link File} is required.
 	 * </p>
 	 *
 	 * @throws  IOException  if I/O error occurs
 	 *
-	 * @see  #getResourceFile()
+	 * @see  ResourceConnection#getFile()
 	 */
 	abstract public File getFile() throws IOException;
 
