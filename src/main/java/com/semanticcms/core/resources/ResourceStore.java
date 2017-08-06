@@ -41,6 +41,8 @@ public interface ResourceStore {
 	/**
 	 * Gets a {@link Resource} for the given path.
 	 * The resource may or may not {@link Resource#exists() exist}.
+	 *
+	 * @param path  Must be a {@link Resource#checkPath(java.lang.String) valid path}
 	 */
 	Resource getResource(String path);
 }

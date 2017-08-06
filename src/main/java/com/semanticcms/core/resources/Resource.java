@@ -41,13 +41,46 @@ import java.io.InputStream;
  */
 abstract public class Resource {
 
+	/**
+	 * Checks the validity of a resource path.
+	 * A path:
+	 * <ol>
+	 *   <li>May not be {@code null}</li>
+	 *   <li>May not be {@link String#isEmpty() empty}</li>
+	 *   <li>Must start with a slash (/)</li>
+	 *   <li>May not end in "/." or "/.."</li>
+	 *   <li>May not contain "/./", "/../", "//", or null character {@code (char)0}</li>
+	 * </ol>
+	 *
+	 * @return  The path when valid
+	 *
+	 * @throws  IllegalArgumentException  When the path is invalid
+	 */
+	public static String checkPath(String path) throws IllegalArgumentException {
+		if(path == null) throw new IllegalArgumentException("path is null");
+		if(path.isEmpty()) throw new IllegalArgumentException("path is empty");
+		if(!path.startsWith("/")) throw new IllegalArgumentException("path does not begin with a slash: " + path);
+		// Paths start with '/' checked above
+		// path.startsWith("./")
+		// || path.startsWith("../")
+		if(path.endsWith("/.")) throw new IllegalArgumentException("path may not end with \"/.\": " + path);
+		if(path.endsWith("/..")) throw new IllegalArgumentException("path may not end with \"/..\": " + path);
+		if(path.contains("/./")) throw new IllegalArgumentException("path may not contain \"/./\": " + path);
+		if(path.contains("/../")) throw new IllegalArgumentException("path may not contain \"/../\": " + path);
+		if(path.contains("//")) throw new IllegalArgumentException("path may not contain \"//\": " + path);
+		if(path.indexOf(0) != -1) throw new IllegalArgumentException("path may not contain null character: " + path);
+		return path;
+	}
+
 	protected final ResourceStore store; // TODO: Worth having this reference back to store?
 	protected final String path;
 
+	/**
+	 * @param path  Must be a {@link #checkPath(java.lang.String) valid path}
+	 */
 	public Resource(ResourceStore store, String path) {
 		this.store = NullArgumentException.checkNotNull(store, "store");
-		this.path = NullArgumentException.checkNotNull(path, "path");
-		if(!this.path.startsWith("/")) throw new IllegalArgumentException("Path does not begin with a slash: " + this.path);
+		this.path = checkPath(path);
 	}
 
 	/**
