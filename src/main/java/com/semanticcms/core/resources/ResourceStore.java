@@ -22,8 +22,14 @@
  */
 package com.semanticcms.core.resources;
 
+import com.aoindustries.net.Path;
+
 /**
  * Gets {@link Resource resources} given their paths.
+ * <p>
+ * When needing to refer to a set of resources with a singular noun, use "store",
+ * which is contrasted with "repository" used for <code>Pages</code>.
+ * </p>
  *
  * @see  Resource
  */
@@ -41,8 +47,6 @@ public interface ResourceStore {
 	/**
 	 * Gets a {@link Resource} for the given path.
 	 * The resource may or may not {@link Resource#exists() exist}.
-	 *
-	 * @param path  Must be a {@link Resource#checkPath(java.lang.String) valid path}
 	 */
-	Resource getResource(String path);
+	Resource getResource(Path path);
 }
