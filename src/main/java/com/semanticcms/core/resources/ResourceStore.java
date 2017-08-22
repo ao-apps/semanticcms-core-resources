@@ -45,6 +45,13 @@ public interface ResourceStore {
 	String toString();
 
 	/**
+	 * Checks if the store is currently available.  A store that is
+	 * unavailable is likely going to throw exceptions.  Tools are encouraged
+	 * to handle unavailable store gracefully, when possible.
+	 */
+	boolean isAvailable();
+
+	/**
 	 * Gets a {@link Resource} for the given path.
 	 * The resource may or may not {@link Resource#exists() exist}.
 	 */
