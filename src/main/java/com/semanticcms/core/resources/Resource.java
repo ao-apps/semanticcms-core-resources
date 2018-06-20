@@ -1,6 +1,6 @@
 /*
  * semanticcms-core-resources - Redistributable sets of SemanticCMS resources.
- * Copyright (C) 2017  AO Industries, Inc.
+ * Copyright (C) 2017, 2018  AO Industries, Inc.
  *     support@aoindustries.com
  *     7262 Bull Pen Cir
  *     Mobile, AL 36695
@@ -157,7 +157,7 @@ abstract public class Resource {
 		File file = isFilePreferred() ? getFile() : null;
 		if(file != null) {
 			if(!file.exists()) throw new FileNotFoundException(file.getPath());
-			// TODO: Java 1.7: Handle 0 as unknown to convert to -1: Files.readAttributes
+			// Java 1.7: Handle 0 as unknown to convert to -1: Files.readAttributes
 			//                 Could do some reflection tricks to avoid hard dependency on Java 1.7, or just bump our java version globally.
 			return file.length();
 		} else {
