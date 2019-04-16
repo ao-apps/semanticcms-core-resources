@@ -77,8 +77,8 @@ along with semanticcms-core-resources.  If not, see <http://www.gnu.org/licenses
 						<configuration>
 							<links>
 								<link>${javac.link.javaApi}</link>
-								<link>https://aoindustries.com/ao-lang/apidocs</link>
-								<link>https://aoindustries.com/ao-net-types/apidocs</link>
+								<link>https://aoindustries.com/ao-lang/apidocs/</link>
+								<link>https://aoindustries.com/ao-net-types/apidocs/</link>
 							</links>
 						</configuration>
 					</plugin>
