@@ -1,6 +1,6 @@
 /*
  * semanticcms-core-resources - Redistributable sets of SemanticCMS resources.
- * Copyright (C) 2017, 2018  AO Industries, Inc.
+ * Copyright (C) 2017, 2018, 2019  AO Industries, Inc.
  *     support@aoindustries.com
  *     7262 Bull Pen Cir
  *     Mobile, AL 36695
@@ -128,11 +128,8 @@ abstract public class Resource {
 		if(file != null) {
 			return file.exists();
 		} else {
-			ResourceConnection conn = open();
-			try {
+			try (ResourceConnection conn = open()) {
 				return conn.exists();
-			} finally {
-				conn.close();
 			}
 		}
 	}
@@ -157,15 +154,11 @@ abstract public class Resource {
 		File file = isFilePreferred() ? getFile() : null;
 		if(file != null) {
 			if(!file.exists()) throw new FileNotFoundException(file.getPath());
-			// Java 1.7: Handle 0 as unknown to convert to -1: Files.readAttributes
-			//                 Could do some reflection tricks to avoid hard dependency on Java 1.7, or just bump our java version globally.
+			// TODO: Handle 0 as unknown to convert to -1: Files.readAttributes
 			return file.length();
 		} else {
-			ResourceConnection conn = open();
-			try {
+			try (ResourceConnection conn = open()) {
 				return conn.getLength();
-			} finally {
-				conn.close();
 			}
 		}
 	}
@@ -192,11 +185,8 @@ abstract public class Resource {
 			if(!file.exists()) throw new FileNotFoundException(file.getPath());
 			return file.lastModified();
 		} else {
-			ResourceConnection conn = open();
-			try {
+			try (ResourceConnection conn = open()) {
 				return conn.getLastModified();
-			} finally {
-				conn.close();
 			}
 		}
 	}
