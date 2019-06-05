@@ -54,7 +54,7 @@ along with semanticcms-core-resources.  If not, see <http://www.gnu.org/licenses
 		</div>]]></javadoc.relatedProjects>
 	</properties>
 
-	<name>SemanticCMS 2 Core Resources</name>
+	<name>SemanticCMS Core Resources²</name>
 	<url>https://semanticcms.com/core/resources/</url>
 	<description>Redistributable sets of SemanticCMS resources.</description>
 	<inceptionYear>2017</inceptionYear>
@@ -77,6 +77,7 @@ along with semanticcms-core-resources.  If not, see <http://www.gnu.org/licenses
 						<configuration>
 							<links>
 								<link>${javac.link.javaApi}</link>
+								<!-- Direct -->
 								<link>https://aoindustries.com/ao-lang/apidocs/</link>
 								<link>https://aoindustries.com/ao-net-types/apidocs/</link>
 							</links>
@@ -87,12 +88,35 @@ along with semanticcms-core-resources.  If not, see <http://www.gnu.org/licenses
 		</profile>
 	</profiles>
 
+	<dependencyManagement>
+		<dependencies>
+			<!-- Direct -->
+			<dependency>
+				<groupId>com.aoindustries</groupId><artifactId>ao-lang</artifactId><version>2.1.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoindustries</groupId><artifactId>ao-lang</artifactId><version>2.1.0-SNAPSHOT</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.aoindustries</groupId><artifactId>ao-net-types</artifactId><version>1.1.2-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aoindustries</groupId><artifactId>ao-net-types</artifactId><version>1.1.2-SNAPSHOT</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
 	<dependencies>
+		<!-- Direct -->
 		<dependency>
-			<groupId>com.aoindustries</groupId><artifactId>ao-lang</artifactId><version>2.1.0-SNAPSHOT</version>
+			<groupId>com.aoindustries</groupId><artifactId>ao-lang</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.aoindustries</groupId><artifactId>ao-net-types</artifactId><version>1.1.1-validation-SNAPSHOT</version>
+			<groupId>com.aoindustries</groupId><artifactId>ao-net-types</artifactId>
 		</dependency>
 	</dependencies>
 </project>
