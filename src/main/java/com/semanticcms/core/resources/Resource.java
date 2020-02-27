@@ -1,6 +1,6 @@
 /*
  * semanticcms-core-resources - Redistributable sets of SemanticCMS resources.
- * Copyright (C) 2017, 2018, 2019  AO Industries, Inc.
+ * Copyright (C) 2017, 2018, 2019, 2020  AO Industries, Inc.
  *     support@aoindustries.com
  *     7262 Bull Pen Cir
  *     Mobile, AL 36695
@@ -37,8 +37,6 @@ import java.io.InputStream;
  * Resources are thread-safe, whereas {@link ResourceConnection} are not.
  *
  * TODO: interface + abstract base, or default interface methods once on Java 1.8?
- *
- * @see  ResourceRef
  */
 abstract public class Resource {
 
