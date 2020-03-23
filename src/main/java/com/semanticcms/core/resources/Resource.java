@@ -75,7 +75,7 @@ abstract public class Resource {
 	/**
 	 * Generated from {@link ResourceStore#toString()} and {@link #path}.
 	 * <p>
-	 * <b>Implementation Note:</b><br />
+	 * <b>Implementation Note:</b><br>
 	 * When the {@link ResourceStore#toString()} ends with ":",
 	 * concatenates {@link ResourceStore#toString()} and {@link #path}.
 	 * Otherwise, concatenates {@link ResourceStore#toString()}, {@code '!'}, and {@link #path}.
