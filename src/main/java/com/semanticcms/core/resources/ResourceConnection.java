@@ -1,6 +1,6 @@
 /*
  * semanticcms-core-resources - Redistributable sets of SemanticCMS resources.
- * Copyright (C) 2017  AO Industries, Inc.
+ * Copyright (C) 2017, 2021  AO Industries, Inc.
  *     support@aoindustries.com
  *     7262 Bull Pen Cir
  *     Mobile, AL 36695
@@ -22,7 +22,7 @@
  */
 package com.semanticcms.core.resources;
 
-import com.aoindustries.lang.NullArgumentException;
+import com.aoapps.lang.NullArgumentException;
 import java.io.Closeable;
 import java.io.File;
 import java.io.FileNotFoundException;
