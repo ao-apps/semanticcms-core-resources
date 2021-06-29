@@ -33,6 +33,7 @@ along with semanticcms-core-resources.  If not, see <http://www.gnu.org/licenses
 	<packaging>bundle</packaging>
 
 	<properties>
+		<module.name>com.semanticcms.core.resources</module.name>
 		<javadoc.breadcrumbs><![CDATA[<a target="${javadoc.target}" href="https://semanticcms.com/">SemanticCMS</a>
 / <a target="${javadoc.target}" href="https://semanticcms.com/core/">Core</a>
 / <a target="${javadoc.target}" href="${project.url}">Resources</a>]]></javadoc.breadcrumbs>
