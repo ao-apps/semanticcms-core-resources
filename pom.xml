@@ -149,7 +149,7 @@ along with semanticcms-core-resources.  If not, see <http://www.gnu.org/licenses
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId><artifactId>maven-javadoc-plugin</artifactId>
 						<configuration>
-							<offlineLinks>
+							<offlineLinks combine.children="append">
 								<!-- Direct -->
 								<offlineLink>
 									<url>https://oss.aoapps.com/lang/apidocs/</url>
@@ -158,11 +158,6 @@ along with semanticcms-core-resources.  If not, see <http://www.gnu.org/licenses
 								<offlineLink>
 									<url>https://oss.aoapps.com/net-types/apidocs/</url>
 									<location>${project.build.directory}/offlineLinks/com.aoapps/ao-net-types</location>
-								</offlineLink>
-								<!-- Java SE -->
-								<offlineLink>
-									<url>${javadoc.link.javase}</url>
-									<location>${project.build.directory}/offlineLinks/com/aoapps/javadoc/offline/javase/${javase.release}</location>
 								</offlineLink>
 							</offlineLinks>
 						</configuration>
