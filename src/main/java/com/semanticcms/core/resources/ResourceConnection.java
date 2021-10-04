@@ -39,7 +39,7 @@ import java.io.InputStream;
  *
  * @see  Resource#open
  */
-abstract public class ResourceConnection implements Closeable {
+public abstract class ResourceConnection implements Closeable {
 
 	protected final Resource resource; // TODO: Worth having this reference back to resource?
 
@@ -65,7 +65,7 @@ abstract public class ResourceConnection implements Closeable {
 	 * @throws  IOException  if I/O error
 	 * @throws  IllegalStateException  if already closed
 	 */
-	abstract public boolean exists() throws IOException, IllegalStateException;
+	public abstract boolean exists() throws IOException, IllegalStateException;
 
 	/**
 	 * Gets the length of this resource or {@code -1} if unknown.
@@ -74,7 +74,7 @@ abstract public class ResourceConnection implements Closeable {
 	 * @throws  FileNotFoundException  if resource does not exist (see {@link #exists()})
 	 * @throws  IllegalStateException  if already closed
 	 */
-	abstract public long getLength() throws IOException, FileNotFoundException, IllegalStateException;
+	public abstract long getLength() throws IOException, FileNotFoundException, IllegalStateException;
 
 	/**
 	 * Gets the last modified time of this resource or {@code 0} if unknown.
@@ -83,7 +83,7 @@ abstract public class ResourceConnection implements Closeable {
 	 * @throws  FileNotFoundException  if resource does not exist (see {@link #exists()})
 	 * @throws  IllegalStateException  if already closed
 	 */
-	abstract public long getLastModified() throws IOException, FileNotFoundException, IllegalStateException;
+	public abstract long getLastModified() throws IOException, FileNotFoundException, IllegalStateException;
 
 	/**
 	 * Opens this resource for reading.  The stream may only be opened once per connection.
@@ -100,7 +100,7 @@ abstract public class ResourceConnection implements Closeable {
 	 *
 	 * @see  #getFile()
 	 */
-	abstract public InputStream getInputStream() throws IOException, FileNotFoundException, IllegalStateException;
+	public abstract InputStream getInputStream() throws IOException, FileNotFoundException, IllegalStateException;
 
 	/**
 	 * Gets a {@link File} for this resource.  This may be called multiple times
@@ -126,7 +126,7 @@ abstract public class ResourceConnection implements Closeable {
 	 * @see  Resource#getFile()
 	 * @see  #close()
 	 */
-	abstract public File getFile() throws IOException, FileNotFoundException, IllegalStateException;
+	public abstract File getFile() throws IOException, FileNotFoundException, IllegalStateException;
 
 	/**
 	 * Closes access to this resource.
@@ -137,5 +137,5 @@ abstract public class ResourceConnection implements Closeable {
 	 * @see  #getFile()
 	 */
 	@Override
-	abstract public void close() throws IOException;
+	public abstract void close() throws IOException;
 }

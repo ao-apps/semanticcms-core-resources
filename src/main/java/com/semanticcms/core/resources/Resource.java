@@ -38,7 +38,7 @@ import java.io.InputStream;
  *
  * TODO: interface + abstract base, or default interface methods once on Java 1.8?
  */
-abstract public class Resource {
+public abstract class Resource {
 
 	protected final ResourceStore store; // TODO: Worth having this reference back to store?
 	protected final Path path;
@@ -243,7 +243,7 @@ abstract public class Resource {
 	 *
 	 * @throws  IOException  if I/O error occurs
 	 */
-	abstract public boolean isFilePreferred() throws IOException;
+	public abstract boolean isFilePreferred() throws IOException;
 
 	/**
 	 * Tries to get a local {@link File} for this resource.  When the resource exists locally,
@@ -261,11 +261,11 @@ abstract public class Resource {
 	 *
 	 * @see  ResourceConnection#getFile()
 	 */
-	abstract public File getFile() throws IOException;
+	public abstract File getFile() throws IOException;
 
 	/**
 	 * Opens a connection to this resource.
 	 * The connection must be {@link ResourceConnection#close() closed} when no longer needed.
 	 */
-	abstract public ResourceConnection open() throws IOException;
+	public abstract ResourceConnection open() throws IOException;
 }
