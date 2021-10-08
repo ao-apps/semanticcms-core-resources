@@ -43,7 +43,7 @@ public abstract class ResourceConnection implements Closeable {
 
 	protected final Resource resource; // TODO: Worth having this reference back to resource?
 
-	public ResourceConnection(Resource resource) {
+	protected ResourceConnection(Resource resource) {
 		this.resource = NullArgumentException.checkNotNull(resource, "resource");
 	}
 

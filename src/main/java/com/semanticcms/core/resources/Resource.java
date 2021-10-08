@@ -43,7 +43,7 @@ public abstract class Resource {
 	protected final ResourceStore store; // TODO: Worth having this reference back to store?
 	protected final Path path;
 
-	public Resource(ResourceStore store, Path path) {
+	protected Resource(ResourceStore store, Path path) {
 		this.store = NullArgumentException.checkNotNull(store, "store");
 		this.path = NullArgumentException.checkNotNull(path, "path");
 	}
