@@ -38,14 +38,14 @@ along with semanticcms-core-resources.  If not, see <https://www.gnu.org/license
 / <a target="${javadoc.target}" href="https://semanticcms.com/core/">Core</a>
 / <a target="${javadoc.target}" href="${project.url}">Resources</a>]]></javadoc.breadcrumbs>
 		<description.html><![CDATA[Redistributable sets of <a target="${javadoc.target}" href="https://semanticcms.com/">SemanticCMS</a> resources.]]></description.html>
-		<javadoc.modules><![CDATA[<div style="float:left; margin: 0 1em">
-			<h2 style="margin-top: 0em">Modules</h2>
+		<javadoc.modules><![CDATA[<div>
+			<h2>Modules</h2>
 			<ul>
 				<li><a target="${javadoc.target}" href="https://semanticcms.com/core/resources/servlet/">SemanticCMS Core Resources Servlet</a></li>
 			</ul>
 		</div>]]></javadoc.modules>
-		<javadoc.relatedProjects><![CDATA[<div style="float:left; margin: 0 1em">
-			<h2 style="margin-top: 0em">Related Projects</h2>
+		<javadoc.relatedProjects><![CDATA[<div>
+			<h2>Related Projects</h2>
 			<ul>
 				<li><a target="${javadoc.target}" href="https://semanticcms.com/resources/empty/">SemanticCMS Resources Empty</a></li>
 				<li><a target="${javadoc.target}" href="https://semanticcms.com/resources/filesystem/">SemanticCMS Resources Filesystem</a></li>
