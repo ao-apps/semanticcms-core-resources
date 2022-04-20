@@ -1,6 +1,6 @@
 /*
  * semanticcms-core-resources - Redistributable sets of SemanticCMS resources.
- * Copyright (C) 2021  AO Industries, Inc.
+ * Copyright (C) 2021, 2022  AO Industries, Inc.
  *     support@aoindustries.com
  *     7262 Bull Pen Cir
  *     Mobile, AL 36695
@@ -21,8 +21,8 @@
  * along with semanticcms-core-resources.  If not, see <https://www.gnu.org/licenses/>.
  */
 module com.semanticcms.core.resources {
-	exports com.semanticcms.core.resources;
-	// Direct
-	requires com.aoapps.lang; // <groupId>com.aoapps</groupId><artifactId>ao-lang</artifactId>
-	requires com.aoapps.net.types; // <groupId>com.aoapps</groupId><artifactId>ao-net-types</artifactId>
+  exports com.semanticcms.core.resources;
+  // Direct
+  requires com.aoapps.lang; // <groupId>com.aoapps</groupId><artifactId>ao-lang</artifactId>
+  requires com.aoapps.net.types; // <groupId>com.aoapps</groupId><artifactId>ao-net-types</artifactId>
 }
