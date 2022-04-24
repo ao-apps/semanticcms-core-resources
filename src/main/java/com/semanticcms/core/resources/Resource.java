@@ -61,10 +61,10 @@ public abstract class Resource {
     if (!(obj instanceof Resource)) {
       return false;
     }
-    Resource other = (Resource)obj;
+    Resource other = (Resource) obj;
     return
-      store.equals(other.store)
-      && path.equals(other.path)
+        store.equals(other.store)
+            && path.equals(other.path)
     ;
   }
 
