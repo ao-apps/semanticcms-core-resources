@@ -25,4 +25,4 @@ module com.semanticcms.core.resources {
   // Direct
   requires com.aoapps.lang; // <groupId>com.aoapps</groupId><artifactId>ao-lang</artifactId>
   requires com.aoapps.net.types; // <groupId>com.aoapps</groupId><artifactId>ao-net-types</artifactId>
-}
+} // TODO: Avoiding rewrite-maven-plugin-4.22.2 truncation
