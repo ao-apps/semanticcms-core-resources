@@ -36,8 +36,9 @@ import java.io.InputStream;
  * An abstract handle used to access the contents of a resource within a book.
  * Resources may be long-lived, whereas {@link ResourceConnection} should be short-lived.
  * Resources are thread-safe, whereas {@link ResourceConnection} are not.
- *
+ * <p>
  * TODO: interface + abstract base, or default interface methods once on Java 1.8?
+ * </p>
  */
 public abstract class Resource {
 
@@ -64,8 +65,7 @@ public abstract class Resource {
     Resource other = (Resource) obj;
     return
         store.equals(other.store)
-            && path.equals(other.path)
-    ;
+            && path.equals(other.path);
   }
 
   /**
