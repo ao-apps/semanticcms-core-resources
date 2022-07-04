@@ -60,7 +60,7 @@ along with semanticcms-core-resources.  If not, see <https://www.gnu.org/license
     <sonar.coverage.exclusions>**.*</sonar.coverage.exclusions>
   </properties>
 
-  <name>SemanticCMS Core Resources²</name>
+  <name>SemanticCMS Core Resources</name>
   <url>https://semanticcms.com/core/resources/</url>
   <description>Redistributable sets of SemanticCMS resources.</description>
   <inceptionYear>2017</inceptionYear>
