@@ -53,10 +53,6 @@ along with semanticcms-core-resources.  If not, see <https://www.gnu.org/license
         <li><a target="${javadoc.target}" href="https://semanticcms.com/resources/union/">SemanticCMS Resources Union</a></li>
       </ul>
     </div>]]></javadoc.relatedProjects>
-    <!-- SonarQube -->
-    <sonar.projectKey>${project.groupId}:${project.artifactId}</sonar.projectKey>
-    <sonar.organization>ao-apps</sonar.organization>
-    <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     <!-- TODO: Implement tests -->
     <sonar.coverage.exclusions>**.*</sonar.coverage.exclusions>
   </properties>
