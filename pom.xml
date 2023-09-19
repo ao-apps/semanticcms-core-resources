@@ -39,7 +39,6 @@ along with semanticcms-core-resources.  If not, see <https://www.gnu.org/license
     <javadoc.breadcrumbs><![CDATA[<a target="${javadoc.target}" href="https://semanticcms.com/">SemanticCMS</a>
 / <a target="${javadoc.target}" href="https://semanticcms.com/core/">Core</a>
 / <a target="${javadoc.target}" href="${project.url}">Resources</a>]]></javadoc.breadcrumbs>
-    <description.html><![CDATA[Redistributable sets of <a target="${javadoc.target}" href="https://semanticcms.com/">SemanticCMS</a> resources.]]></description.html>
     <javadoc.modules><![CDATA[<div>
       <h2>Modules</h2>
       <ul>
@@ -54,6 +53,8 @@ along with semanticcms-core-resources.  If not, see <https://www.gnu.org/license
         <li><a target="${javadoc.target}" href="https://semanticcms.com/resources/union/">SemanticCMS Resources Union</a></li>
       </ul>
     </div>]]></javadoc.relatedProjects>
+    
+    <description.html><![CDATA[Redistributable sets of <a target="${javadoc.target}" href="https://semanticcms.com/">SemanticCMS</a> resources.]]></description.html>
     <!-- TODO: Implement tests -->
     <sonar.coverage.exclusions>**.*</sonar.coverage.exclusions>
   </properties>
