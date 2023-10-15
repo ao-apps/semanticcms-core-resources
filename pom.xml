@@ -148,6 +148,11 @@ along with semanticcms-core-resources.  If not, see <https://www.gnu.org/license
                       <includes>element-list, package-list</includes>
                       <outputDirectory>${project.build.directory}/offlineLinks/com.aoapps/ao-net-types</outputDirectory>
                     </artifactItem>
+                    <artifactItem>
+                      <groupId>com.github.spotbugs</groupId><artifactId>spotbugs-annotations</artifactId><classifier>javadoc</classifier>
+                      <includes>element-list, package-list</includes>
+                      <outputDirectory>${project.build.directory}/offlineLinks/com.github.spotbugs/spotbugs-annotations</outputDirectory>
+                    </artifactItem>
                   </artifactItems>
                 </configuration>
               </execution>
@@ -166,6 +171,10 @@ along with semanticcms-core-resources.  If not, see <https://www.gnu.org/license
                   <url>https://oss.aoapps.com/net-types/apidocs/</url>
                   <location>${project.build.directory}/offlineLinks/com.aoapps/ao-net-types</location>
                 </offlineLink>
+                <offlineLink>
+                  <url>https://javadoc.io/doc/com.github.spotbugs/spotbugs-annotations/${com.github.spotbugs:spotbugs-annotations:jar.version}/</url>
+                  <location>${project.build.directory}/offlineLinks/com.github.spotbugs/spotbugs-annotations</location>
+                </offlineLink>
               </offlineLinks>
             </configuration>
           </plugin>
@@ -182,6 +191,9 @@ along with semanticcms-core-resources.  If not, see <https://www.gnu.org/license
       </dependency>
       <dependency>
         <groupId>com.aoapps</groupId><artifactId>ao-net-types</artifactId><version>2.0.2${POST-SNAPSHOT}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.github.spotbugs</groupId><artifactId>spotbugs-annotations</artifactId><version>4.8.0</version>
       </dependency>
       <!-- Transitive -->
       <dependency>
@@ -200,6 +212,10 @@ along with semanticcms-core-resources.  If not, see <https://www.gnu.org/license
     </dependency>
     <dependency>
       <groupId>com.aoapps</groupId><artifactId>ao-net-types</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.github.spotbugs</groupId><artifactId>spotbugs-annotations</artifactId>
+      <optional>true</optional>
     </dependency>
   </dependencies>
 </project>
