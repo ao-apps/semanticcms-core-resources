@@ -47,6 +47,7 @@ public abstract class Resource {
   protected final ResourceStore store; // TODO: Worth having this reference back to store?
   protected final Path path;
 
+  @SuppressFBWarnings("CT_CONSTRUCTOR_THROW")
   protected Resource(ResourceStore store, Path path) {
     this.store = NullArgumentException.checkNotNull(store, "store");
     this.path = NullArgumentException.checkNotNull(path, "path");
