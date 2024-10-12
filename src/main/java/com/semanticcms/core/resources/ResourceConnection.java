@@ -1,6 +1,6 @@
 /*
  * semanticcms-core-resources - Redistributable sets of SemanticCMS resources.
- * Copyright (C) 2017, 2021, 2022, 2023  AO Industries, Inc.
+ * Copyright (C) 2017, 2021, 2022, 2023, 2024  AO Industries, Inc.
  *     support@aoindustries.com
  *     7262 Bull Pen Cir
  *     Mobile, AL 36695
@@ -45,6 +45,9 @@ public abstract class ResourceConnection implements Closeable {
 
   protected final Resource resource; // TODO: Worth having this reference back to resource?
 
+  /**
+   * Creates a new {@link ResourceConnection}.
+   */
   @SuppressFBWarnings("CT_CONSTRUCTOR_THROW")
   protected ResourceConnection(Resource resource) {
     this.resource = NullArgumentException.checkNotNull(resource, "resource");

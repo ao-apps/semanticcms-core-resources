@@ -1,6 +1,6 @@
 /*
  * semanticcms-core-resources - Redistributable sets of SemanticCMS resources.
- * Copyright (C) 2017, 2018, 2019, 2020, 2021, 2022, 2023  AO Industries, Inc.
+ * Copyright (C) 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024  AO Industries, Inc.
  *     support@aoindustries.com
  *     7262 Bull Pen Cir
  *     Mobile, AL 36695
@@ -47,6 +47,9 @@ public abstract class Resource {
   protected final ResourceStore store; // TODO: Worth having this reference back to store?
   protected final Path path;
 
+  /**
+   * Creates a new {@link Resource}.
+   */
   @SuppressFBWarnings("CT_CONSTRUCTOR_THROW")
   protected Resource(ResourceStore store, Path path) {
     this.store = NullArgumentException.checkNotNull(store, "store");
