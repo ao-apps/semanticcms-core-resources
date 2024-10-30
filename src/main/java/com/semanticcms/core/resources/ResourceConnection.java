@@ -35,9 +35,8 @@ import java.io.InputStream;
  * An active connection to a resource.
  * ResourceConnections should be short-lived, whereas {@link Resource} may be long-lived.
  * ResourceConnections are not thread-safe, whereas {@link Resource} are.
- * <p>
- * TODO: interface + abstract base, or default interface methods once on Java 1.8?
- * </p>
+ *
+ * <p>TODO: interface + abstract base, or default interface methods once on Java 1.8?</p>
  *
  * @see  Resource#open
  */
@@ -94,10 +93,9 @@ public abstract class ResourceConnection implements Closeable {
   /**
    * Opens this resource for reading.  The stream may only be opened once per connection.
    * May not get the stream if {@link #getFile()} has been called.
-   * <p>
-   * When requiring reading the stream more than once, please use {@link #getFile()}
-   * to fetch the resource once, then perform direct file I/O on the local file.
-   * </p>
+   *
+   * <p>When requiring reading the stream more than once, please use {@link #getFile()}
+   * to fetch the resource once, then perform direct file I/O on the local file.</p>
    *
    * @throws  IOException  if I/O error occurs
    * @throws  FileNotFoundException  if resource does not exist (see {@link #exists()})
@@ -112,17 +110,15 @@ public abstract class ResourceConnection implements Closeable {
    * Gets a {@link File} for this resource.  This may be called multiple times
    * and will get the same {@link File}.  May not get the file if
    * {@link #getInputStream()} has been called.
-   * <p>
-   * When the resource exists locally, this will be a direct reference to the
+   *
+   * <p>When the resource exists locally, this will be a direct reference to the
    * resource.  When the resource exists remotely or is otherwise not directly
    * accessible, this may require fetching the resource contents into a
-   * temporary file.  Any temporary files will be deleted on {@link #close()}.
-   * </p>
-   * <p>
-   * Use this when having a {@link File} is a hard requirement, and not merely
+   * temporary file.  Any temporary files will be deleted on {@link #close()}.</p>
+   *
+   * <p>Use this when having a {@link File} is a hard requirement, and not merely
    * a convenience or optimization.  Use {@link Resource#getFile()} when a {@link File}
-   * is optional.
-   * </p>
+   * is optional.</p>
    *
    * @throws  IOException  if I/O error occurs
    * @throws  FileNotFoundException  if resource does not exist (see {@link #exists()})

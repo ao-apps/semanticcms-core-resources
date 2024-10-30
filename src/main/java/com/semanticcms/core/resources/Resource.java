@@ -37,9 +37,8 @@ import java.io.InputStream;
  * An abstract handle used to access the contents of a resource within a book.
  * Resources may be long-lived, whereas {@link ResourceConnection} should be short-lived.
  * Resources are thread-safe, whereas {@link ResourceConnection} are not.
- * <p>
- * TODO: interface + abstract base, or default interface methods once on Java 1.8?
- * </p>
+ *
+ * <p>TODO: interface + abstract base, or default interface methods once on Java 1.8?</p>
  */
 @SuppressFBWarnings("PI_DO_NOT_REUSE_PUBLIC_IDENTIFIERS_CLASS_NAMES")
 public abstract class Resource {
@@ -85,12 +84,11 @@ public abstract class Resource {
 
   /**
    * Generated from {@link ResourceStore#toString()} and {@link #path}.
-   * <p>
-   * <b>Implementation Note:</b><br>
+   *
+   * <p><b>Implementation Note:</b><br>
    * When the {@link ResourceStore#toString()} ends with ":",
    * concatenates {@link ResourceStore#toString()} and {@link #path}.
-   * Otherwise, concatenates {@link ResourceStore#toString()}, {@code '!'}, and {@link #path}.
-   * </p>
+   * Otherwise, concatenates {@link ResourceStore#toString()}, {@code '!'}, and {@link #path}.</p>
    */
   @Override
   public String toString() {
@@ -121,11 +119,10 @@ public abstract class Resource {
 
   /**
    * Checks if this resource exists.
-   * <p>
-   * This method opens and closes non-local-file resources.
+   *
+   * <p>This method opens and closes non-local-file resources.
    * If consecutive operations will be done on the resource, use {@link #open()}
-   * to obtain a {@link ResourceConnection}.
-   * </p>
+   * to obtain a {@link ResourceConnection}.</p>
    *
    * @throws  IOException  if I/O error occurs
    *
@@ -147,11 +144,10 @@ public abstract class Resource {
 
   /**
    * Gets the length of this resource or {@code -1} if unknown.
-   * <p>
-   * This method opens and closes non-local-file resources.
+   *
+   * <p>This method opens and closes non-local-file resources.
    * If consecutive operations will be done on the resource, use {@link #open()}
-   * to obtain a {@link ResourceConnection}.
-   * </p>
+   * to obtain a {@link ResourceConnection}.</p>
    *
    * @throws  IOException  if I/O error occurs
    * @throws  FileNotFoundException  if resource does not exist (see {@link #exists()})
@@ -178,11 +174,10 @@ public abstract class Resource {
 
   /**
    * Gets the last modified time of this resource or {@code 0} if unknown.
-   * <p>
-   * This method opens and closes non-local-file resources.
+   *
+   * <p>This method opens and closes non-local-file resources.
    * If consecutive operations will be done on the resource, use {@link #open()}
-   * to obtain a {@link ResourceConnection}.
-   * </p>
+   * to obtain a {@link ResourceConnection}.</p>
    *
    * @throws  IOException  if I/O error occurs
    * @throws  FileNotFoundException  if resource does not exist (see {@link #exists()})
@@ -208,11 +203,10 @@ public abstract class Resource {
 
   /**
    * Opens this resource for reading.
-   * <p>
-   * This method opens non-local-file resources and closes the resource when the stream is closed.
+   *
+   * <p>This method opens non-local-file resources and closes the resource when the stream is closed.
    * If consecutive operations will be done on the resource, use {@link #open()}
-   * to obtain a {@link ResourceConnection}.
-   * </p>
+   * to obtain a {@link ResourceConnection}.</p>
    *
    * @throws  IOException  if I/O error occurs
    * @throws  FileNotFoundException  if resource does not exist (see {@link #exists()})
@@ -266,13 +260,11 @@ public abstract class Resource {
    * Tries to get a local {@link File} for this resource.  When the resource exists locally,
    * this will be a direct reference to the resource.  When the resource exists remotely or
    * is otherwise not directly accessible, this will return {@code null}.
-   * <p>
-   * The file may or may not {@link File#exists() exist}.
-   * </p>
-   * <p>
-   * Use this when having a {@link File} is a convenience or optimization, and not a hard
-   * requirement.  Use {@link ResourceConnection#getFile()} when a {@link File} is required.
-   * </p>
+   *
+   * <p>The file may or may not {@link File#exists() exist}.</p>
+   *
+   * <p>Use this when having a {@link File} is a convenience or optimization, and not a hard
+   * requirement.  Use {@link ResourceConnection#getFile()} when a {@link File} is required.</p>
    *
    * @throws  IOException  if I/O error occurs
    *
