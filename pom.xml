@@ -60,9 +60,9 @@ along with semanticcms-core-resources.  If not, see <https://www.gnu.org/license
 
     <!-- Plugin Dependencies -->
     <!--
-      spotbugs-annotations-4.9.2 with spotbugs-maven-plugin-4.9.1.0 seems confused.  It is consider some
+      spotbugs-4.9.2 with spotbugs-maven-plugin-4.9.1.0 seems confused.  It is consider some
       annotations as both necessary and unnecessary.  With or without the annotation, there is one failure or
-      another.  Stay on spotbugs-annotations-4.9.1 until this is resolved.
+      another.  Stay on spotbugs-4.9.1 until this is resolved.
     -->
     <com.github.spotbugs.spotbugs.version>4.9.1</com.github.spotbugs.spotbugs.version>
   </properties>
@@ -201,7 +201,7 @@ along with semanticcms-core-resources.  If not, see <https://www.gnu.org/license
         <groupId>com.aoapps</groupId><artifactId>ao-net-types</artifactId><version>3.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
       </dependency>
       <dependency>
-        <groupId>com.github.spotbugs</groupId><artifactId>spotbugs-annotations</artifactId><version>4.9.1</version>
+        <groupId>com.github.spotbugs</groupId><artifactId>spotbugs-annotations</artifactId><version>4.9.2</version>
       </dependency>
       <!-- Transitive -->
       <dependency>
