@@ -76,7 +76,7 @@ public abstract class ResourceConnection implements Closeable {
    * Gets the length of this resource or {@code -1} if unknown.
    *
    * @throws  IOException  if I/O error occurs
-   * @throws  FileNotFoundException  if resource does not exist (see {@link #exists()})
+   * @throws  FileNotFoundException  if resource does not exist (see {@link ResourceConnection#exists()})
    * @throws  IllegalStateException  if already closed
    */
   public abstract long getLength() throws IOException, FileNotFoundException, IllegalStateException;
@@ -85,48 +85,48 @@ public abstract class ResourceConnection implements Closeable {
    * Gets the last modified time of this resource or {@code 0} if unknown.
    *
    * @throws  IOException  if I/O error occurs
-   * @throws  FileNotFoundException  if resource does not exist (see {@link #exists()})
+   * @throws  FileNotFoundException  if resource does not exist (see {@link ResourceConnection#exists()})
    * @throws  IllegalStateException  if already closed
    */
   public abstract long getLastModified() throws IOException, FileNotFoundException, IllegalStateException;
 
   /**
    * Opens this resource for reading.  The stream may only be opened once per connection.
-   * May not get the stream if {@link #getFile()} has been called.
+   * May not get the stream if {@link ResourceConnection#getFile()} has been called.
    *
-   * <p>When requiring reading the stream more than once, please use {@link #getFile()}
+   * <p>When requiring reading the stream more than once, please use {@link ResourceConnection#getFile()}
    * to fetch the resource once, then perform direct file I/O on the local file.</p>
    *
    * @throws  IOException  if I/O error occurs
-   * @throws  FileNotFoundException  if resource does not exist (see {@link #exists()})
+   * @throws  FileNotFoundException  if resource does not exist (see {@link ResourceConnection#exists()})
    * @throws  IllegalStateException  if already closed, the stream has already been accessed,
-   *                                 or {@link #getFile()} has been accessed.
+   *                                 or {@link ResourceConnection#getFile()} has been accessed.
    *
-   * @see  #getFile()
+   * @see  ResourceConnection#getFile()
    */
   public abstract InputStream getInputStream() throws IOException, FileNotFoundException, IllegalStateException;
 
   /**
    * Gets a {@link File} for this resource.  This may be called multiple times
    * and will get the same {@link File}.  May not get the file if
-   * {@link #getInputStream()} has been called.
+   * {@link ResourceConnection#getInputStream()} has been called.
    *
    * <p>When the resource exists locally, this will be a direct reference to the
    * resource.  When the resource exists remotely or is otherwise not directly
    * accessible, this may require fetching the resource contents into a
-   * temporary file.  Any temporary files will be deleted on {@link #close()}.</p>
+   * temporary file.  Any temporary files will be deleted on {@link ResourceConnection#close()}.</p>
    *
    * <p>Use this when having a {@link File} is a hard requirement, and not merely
    * a convenience or optimization.  Use {@link Resource#getFile()} when a {@link File}
    * is optional.</p>
    *
    * @throws  IOException  if I/O error occurs
-   * @throws  FileNotFoundException  if resource does not exist (see {@link #exists()})
-   * @throws  IllegalStateException  if already closed or {@link #getInputStream()} has been accessed.
+   * @throws  FileNotFoundException  if resource does not exist (see {@link ResourceConnection#exists()})
+   * @throws  IllegalStateException  if already closed or {@link ResourceConnection#getInputStream()} has been accessed.
    *
-   * @see  #getInputStream()
+   * @see  ResourceConnection#getInputStream()
    * @see  Resource#getFile()
-   * @see  #close()
+   * @see  ResourceConnection#close()
    */
   public abstract File getFile() throws IOException, FileNotFoundException, IllegalStateException;
 
@@ -136,7 +136,7 @@ public abstract class ResourceConnection implements Closeable {
    *
    * @throws  IOException  if I/O error occurs
    *
-   * @see  #getFile()
+   * @see  ResourceConnection#getFile()
    */
   @Override
   public abstract void close() throws IOException;

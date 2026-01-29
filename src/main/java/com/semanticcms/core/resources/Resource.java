@@ -56,7 +56,7 @@ public abstract class Resource {
 
   /**
    * The equality of a resource is based on equality of both
-   * {@link #getStore() store} and {@link #getPath() path}.
+   * {@link Resource#getStore() store} and {@link Resource#getPath() path}.
    */
   @Override
   public boolean equals(Object obj) {
@@ -74,7 +74,7 @@ public abstract class Resource {
 
   /**
    * The hash code of a resource is based on equality of both
-   * {@link #getStore() store} and {@link #getPath() path}.
+   * {@link Resource#getStore() store} and {@link Resource#getPath() path}.
    */
   @Override
   public int hashCode() {
@@ -82,12 +82,12 @@ public abstract class Resource {
   }
 
   /**
-   * Generated from {@link ResourceStore#toString()} and {@link #path}.
+   * Generated from {@link ResourceStore#toString()} and {@link Resource#path}.
    *
    * <p><b>Implementation Note:</b><br>
    * When the {@link ResourceStore#toString()} ends with ":",
-   * concatenates {@link ResourceStore#toString()} and {@link #path}.
-   * Otherwise, concatenates {@link ResourceStore#toString()}, {@code '!'}, and {@link #path}.</p>
+   * concatenates {@link ResourceStore#toString()} and {@link Resource#path}.
+   * Otherwise, concatenates {@link ResourceStore#toString()}, {@code '!'}, and {@link Resource#path}.</p>
    */
   @Override
   public String toString() {
@@ -120,14 +120,14 @@ public abstract class Resource {
    * Checks if this resource exists.
    *
    * <p>This method opens and closes non-local-file resources.
-   * If consecutive operations will be done on the resource, use {@link #open()}
+   * If consecutive operations will be done on the resource, use {@link Resource#open()}
    * to obtain a {@link ResourceConnection}.</p>
    *
    * @throws  IOException  if I/O error occurs
    *
-   * @see  #isFilePreferred()
-   * @see  #getFile()
-   * @see  #open()
+   * @see  Resource#isFilePreferred()
+   * @see  Resource#getFile()
+   * @see  Resource#open()
    * @see  ResourceConnection#exists()
    */
   public boolean exists() throws IOException {
@@ -145,15 +145,15 @@ public abstract class Resource {
    * Gets the length of this resource or {@code -1} if unknown.
    *
    * <p>This method opens and closes non-local-file resources.
-   * If consecutive operations will be done on the resource, use {@link #open()}
+   * If consecutive operations will be done on the resource, use {@link Resource#open()}
    * to obtain a {@link ResourceConnection}.</p>
    *
    * @throws  IOException  if I/O error occurs
-   * @throws  FileNotFoundException  if resource does not exist (see {@link #exists()})
+   * @throws  FileNotFoundException  if resource does not exist (see {@link Resource#exists()})
    *
-   * @see  #isFilePreferred()
-   * @see  #getFile()
-   * @see  #open()
+   * @see  Resource#isFilePreferred()
+   * @see  Resource#getFile()
+   * @see  Resource#open()
    * @see  ResourceConnection#getLength()
    */
   public long getLength() throws IOException, FileNotFoundException {
@@ -175,15 +175,15 @@ public abstract class Resource {
    * Gets the last modified time of this resource or {@code 0} if unknown.
    *
    * <p>This method opens and closes non-local-file resources.
-   * If consecutive operations will be done on the resource, use {@link #open()}
+   * If consecutive operations will be done on the resource, use {@link Resource#open()}
    * to obtain a {@link ResourceConnection}.</p>
    *
    * @throws  IOException  if I/O error occurs
-   * @throws  FileNotFoundException  if resource does not exist (see {@link #exists()})
+   * @throws  FileNotFoundException  if resource does not exist (see {@link Resource#exists()})
    *
-   * @see  #isFilePreferred()
-   * @see  #getFile()
-   * @see  #open()
+   * @see  Resource#isFilePreferred()
+   * @see  Resource#getFile()
+   * @see  Resource#open()
    * @see  ResourceConnection#getLastModified()
    */
   public long getLastModified() throws IOException, FileNotFoundException {
@@ -204,15 +204,15 @@ public abstract class Resource {
    * Opens this resource for reading.
    *
    * <p>This method opens non-local-file resources and closes the resource when the stream is closed.
-   * If consecutive operations will be done on the resource, use {@link #open()}
+   * If consecutive operations will be done on the resource, use {@link Resource#open()}
    * to obtain a {@link ResourceConnection}.</p>
    *
    * @throws  IOException  if I/O error occurs
-   * @throws  FileNotFoundException  if resource does not exist (see {@link #exists()})
+   * @throws  FileNotFoundException  if resource does not exist (see {@link Resource#exists()})
    *
-   * @see  #isFilePreferred()
-   * @see  #getFile()
-   * @see  #open()
+   * @see  Resource#isFilePreferred()
+   * @see  Resource#getFile()
+   * @see  Resource#open()
    * @see  ResourceConnection#getInputStream()
    */
   public InputStream getInputStream() throws IOException, FileNotFoundException {
@@ -248,7 +248,7 @@ public abstract class Resource {
    * this flag determines whether performance-sensitive API usage should prefer direct
    * file I/O (when available) or prefer resource connections.
    *
-   * @return  {@code true} when file I/O (via {@link #getFile()}) will generally perform better,
+   * @return  {@code true} when file I/O (via {@link Resource#getFile()}) will generally perform better,
    *          or {@code false} when resource connection (via @{link #open()}) should be preferred.
    *
    * @throws  IOException  if I/O error occurs
