@@ -22,3 +22,6 @@
 
 # Removed unnecessary whitespace
 63d5625e3afcb680016fde87fc6922ed2addbb85
+
+# Workaround javadoc reproducibility limitations/bugs
+543cbdc0eaf1f4a920b0b41e05b142134b5550b9
